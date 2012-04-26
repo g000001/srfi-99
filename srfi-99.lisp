@@ -1,8 +1,7 @@
 (cl:in-package :srfi-99.internal)
 
 (declaim
- (ftype (function (symbol vector &optional (or structure-class nil)) t)
-        make-rtd)
+ (ftype (function (symbol vector &optional (or structure-class nil)) t) make-rtd)
  (ftype (function (t) boolean) rtd?)
  (ftype (function (structure-class &optional vector) function) rtd-constructor)
  (ftype (function (structure-class) function) rtd-predicate)
@@ -166,32 +165,5 @@
     (mapcan (lambda (x)
               (copy-list (structure-type-slot-description-list x)))
             cnames)))
-
-#|(defstruct rtd-info
-  fieldspecs
-  constructor
-  predicate
-  accessor
-  mutator
-  name
-  parent
-  field-names
-  all-field-names)|#
-
-#|(defstruct (rtd
-            (:constructor %make-rtd (rtd-info &aux (.rtd-info. rtd-info))))
-  .rtd-info.)|#
-
-#|(defmethod make-load-form ((obj rtd-info) &optional env)
-  (declare (ignore env))
-  `(make-rtd-info :fieldspecs ',(rtd-info-fieldspecs obj)
-                  :constructor ',(rtd-info-constructor obj)
-                  :predicate ',(rtd-info-predicate obj)
-                  :accessor ',(rtd-info-accessor obj)
-                  :mutator ',(rtd-info-mutator obj)
-                  :name ',(rtd-info-name obj)
-                  :parent ',(rtd-info-parent obj)
-                  :field-names ',(rtd-info-field-names obj)
-                  :all-field-names ',(rtd-info-all-field-names obj)))|#
 
 ;;; eof

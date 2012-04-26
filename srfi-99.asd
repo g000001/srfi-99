@@ -4,11 +4,11 @@
 
 (defsystem :srfi-99
   :serial t
-  :depends-on (:fiveam :closer-mop :mbe)
+  :depends-on (:fiveam :closer-mop)
   :components ((:file "package")
                (:file "srfi-99-aux")
                (:file "srfi-99")
-               ;; (:file "test")
+               (:file "test")
                ))
 
 (defmethod perform ((o test-op) (c (eql (find-system :srfi-99))))
