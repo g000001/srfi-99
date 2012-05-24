@@ -4,7 +4,7 @@
 
 (defsystem :srfi-99
   :serial t
-  :depends-on (:fiveam :closer-mop)
+  :depends-on (:fiveam :closer-mop :mbe)
   :components ((:file "package")
                (:file "srfi-99-aux")
                (:file "srfi-99")
